@@ -39,6 +39,7 @@ import Register from './pages/register/Register'
 
 import {BrowserRouter as Router, Switch, Route, Redirect} from 'react-router-dom'
 import { AuthContext } from './context/AuthContext'
+import Messenger from './pages/messenger/Messenger'
 
 const App = () => {
   const {user} = useContext(AuthContext)
@@ -53,6 +54,9 @@ const App = () => {
       </Route>
       <Route path = '/register'>
       {user ? <Redirect to = '/' />:<Register />}
+      </Route>
+      <Route to = 'messenger'>
+        {!user ? <Redirect to = '/' />: <Messenger />}
       </Route>
       <Route path = '/profile/:username'>
         <Profile />

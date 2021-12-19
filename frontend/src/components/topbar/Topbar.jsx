@@ -76,10 +76,10 @@ const Topbar = () => {
           </form>
         </div>
         <div className="topbarRight">
-          <div className="topbarLinks">
+          {/* <div className="topbarLinks">
             <span className="topbarLink">Homepage</span>
             <span className="topbarLink">Timeline</span>
-          </div>
+          </div> */}
           <div className="topbarIcons">
             <div className="topbarIconItem">
               <Person />
@@ -94,12 +94,15 @@ const Topbar = () => {
               <span className="topbarIconBadge">4</span>
             </div>
           </div>
+          <div className="topbarSign">
           {user.profilePicture ? (
             <img src={PF + user.profilePicture} alt="" className="topbarImg" />
           ) : (
             <AccountCircle size="large" />
           )}
-          <button onClick={logOut}>Log out</button>
+          <button onClick={logOut} className = 'logOutButton'>Log out</button>
+
+          </div>
         </div>
       </div>
       

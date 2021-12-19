@@ -9,6 +9,8 @@ const path = require('path')
 const userRoute = require('./routes/users')
 const authRoute = require('./routes/auth')
 const postRoute = require('./routes/post')
+const conversationRouter = require('./routes/conversation')
+const messageRouter = require('./routes/message')
 
 dotenv.config();
 const app = express();
@@ -56,6 +58,8 @@ app.post('/api/upload', upload.single('file'), (req, res)=>{
 app.use('/api/users', userRoute)
 app.use('/api/auth', authRoute)
 app.use('/api/posts', postRoute)
+app.use('/api/conversations', conversationRouter)
+app.use('/api/messages',messageRouter)
 
 const PORT = process.env.PORT
 

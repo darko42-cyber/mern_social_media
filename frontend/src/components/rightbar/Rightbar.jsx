@@ -9,25 +9,10 @@ import { AuthContext } from "../../context/AuthContext";
 import { Add, Remove } from "@material-ui/icons";
 
 const Rightbar = ({ user }) => {
+  const [follow, setFollow] = useState(false);
   const [friends, setFriends] = useState([]);
   const { user: currentUser } = useContext(AuthContext);
-  const [follow, setFollow] = useState(false);
-
-  useEffect(() => {
-    setFollow(currentUser.followings.includes(user?._id));
-  }, [currentUser, user?._id]);
-
-  useEffect(() => {
-    const getFriends = async () => {
-      try {
-        const friendList = await axios.get("/users/friends/" + user._id);
-        setFriends(friendList.data);
-      } catch (error) {
-        console.log(error);
-      }
-    };
-    getFriends();
-  }, [user?._id]);
+ 
 
   const handleClick = async () => {
     try {

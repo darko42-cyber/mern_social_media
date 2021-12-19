@@ -33,6 +33,7 @@
     flex-direction: column;
     box-shadow: 10px 5px 16px -8px rgba(146, 140, 140, 0.68);
     border-radius: 10px;  
+    
 }
 .searchItems{
     display:flex;
